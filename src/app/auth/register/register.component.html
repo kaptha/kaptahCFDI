@@ -1,0 +1,118 @@
+<div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url(../assets/img/reg.jpg) no-repeat center center;">
+    <div class="auth-box p-4 bg-white rounded">
+        <div>
+            <div class="logo text-center">
+                <span class="db"><img src="../../../assets/img/kap.svg" alt="logo" /></span>
+                <h5 class="font-weight-medium mb-3 mt-1">Registro</h5>
+            </div>
+            <!-- Form -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <form class="form-horizontal"  class="ps-form--account ps-tab-root needs-validation" >
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control form-input-bg" id="tb-rfname" placeholder="Nombre Apellidos"  required>
+                                <label for="tb-rfname">Nombre Completo</label>
+                                <div  class="invalid-feedback">
+                                  Nombre es Requerido
+                                </div>
+                                <div class="valid-feedback">
+                                    Valido!
+                                </div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control form-input-bg" id="tb-remail" placeholder="registro@gmail.com"   required>
+                                <label for="tb-remail">Correo</label>
+                                <div  class="invalid-feedback">
+                                  Correo es requerido
+                                </div>
+                                <div class="valid-feedback">
+                                    Valido!
+                                </div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control form-input-bg" id="tb-rfname" placeholder="XXXX-XXXXXXX-XX"   name="rfc" required>
+                                <label for="tb-rfname">RFC</label>
+                                <div  class="invalid-feedback">
+                                  RFC es Requerido
+                                </div>
+                                <div class="valid-feedback">
+                                    Valido!
+                                </div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control form-input-bg" id="tb-rfname" placeholder="XXX-XXX-XXXX"   name="telefono" required>
+                                <label for="tb-rfname">Telefono</label>
+                                <div  class="invalid-feedback">
+                                  Telefono es Requerido
+                                </div>
+                                <div class="valid-feedback">
+                                    Valido!
+                                </div>
+                            </div>
+
+                            <div class="form-floating mb-3">                             
+                                <label for="tb-rfname">Regimen Fiscal</label>
+                                <select class="form-control form-select" data-placeholder="Choose a Category" tabindex="1"  name="tipo_persona" required>
+                                <option value="601">General de Ley Personas Morales</option>
+                                <option value="603">Personas Morales con Fines no Lucrativos</option>
+                                <option value="605">Sueldos y Salarios e Ingresos Asimilados a Salarios</option>
+                                <option value="606">Arrendamiento</option>
+                                <option value="607">Régimen de Enajenación o Adquisición de Bienes</option>
+                                <option value="608">Demás ingresos</option>
+                                <option value="610">Residentes en el Extranjero sin Establecimiento Permanente en México</option>
+                                <option value="611">Ingresos por Dividendos (socios y accionistas)</option>
+                                <option value="612">Personas Físicas con Actividades Empresariales y Profesionales</option>
+                                <option value="614">Ingresos por intereses</option>
+                                <option value="615">Régimen de los ingresos por obtención de premios</option>
+                                <option value="616">Sin obligaciones fiscales</option>
+                                <option value="620">Sociedades Cooperativas de Producción que optan por diferir sus ingresos</option>
+                                <option value="621">Incorporación Fiscal</option>
+                                <option value="622">Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras</option>
+                                <option value="623">Opcional para Grupos de Sociedades</option>
+                                <option value="624">Coordinados</option>
+                                <option value="625">Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas</option>
+                                <option value="626">Régimen Simplificado de Confianza</option>  
+                                </select>                                  
+                                <div  class="invalid-feedback">
+                                  Campo Requerido
+                                </div>
+                                <div class="valid-feedback">
+                                    Valido!
+                                </div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control form-input-bg" id="text-rpassword" placeholder="*****" >
+                                <label for="text-rpassword">Contraseña</label>
+                                <div  class="invalid-feedback">
+                                  Contraseña requerida ó debe ser al menos 4 caracteres con numeros, letras mayusculas y minuscula 
+                                </div>
+                                <div class="valid-feedback">
+                                    Valido!
+                                </div>
+                            </div>
+
+                            <div class="checkbox checkbox-primary mb-3">
+                                  <input id="checkbox-signup" type="checkbox" class="chk-col-indigo material-inputs">
+                                  <label for="checkbox-signup"> Aceptar <a href="#">Terminos</a></label>
+                            </div>
+                            <div class="d-flex align-items-stretch">
+                                <button type="submit" class="btn btn-info d-block w-100">Registrar</button>
+                            </div>
+                        </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 text-center">
+                    <div class="social mb-3">
+                        <a href="javascript:void(0)" class="btn fab fa-facebook-f" data-bs-toggle="tooltip" title="Registro con Facebook" style="cursor:pointer" > <i aria-hidden="true"></i> </a>
+                        <a href="javascript:void(0)" class="btn fab fa-google" data-bs-toggle="tooltip" title="Registro con Google" style="cursor:pointer" > <i aria-hidden="true"></i> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

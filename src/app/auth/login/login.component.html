@@ -1,0 +1,91 @@
+<div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url(../assets/images/background/login-register.jpg) no-repeat center center; background-size: cover;">
+    <div class="auth-box on-sidebar p-4 bg-white m-0">
+        <div id="loginform">
+            <div class="logo text-center">
+                <span class="db"><img src="../../../assets/img/kap.svg" alt="logo" /></span>
+            </div>
+            <!-- Form -->
+            <div class="row">
+                <div class="col-12">
+                    <form (ngSubmit)="onSubmit(f)"  #f="ngForm" class="form-horizontal mt-3 form-material ps-form--account ps-tab-root needs-validation" novalidate>
+                        <div class="form-group mb-3">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" placeholder="Correo" [(ngModel)]="user.email" name="email" email required> 
+                                <div *ngIf="f.submitted && f.controls['email'].errors" class="invalid-feedback">
+                                  Correo es requerido
+                                </div>
+                                <div class="valid-feedback">
+                                    Valido!
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group mb-3">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="password" placeholder="Contraseña" [(ngModel)]="user.password" name="password" required> 
+                                <div *ngIf="f.submitted && f.controls['password'].errors" class="invalid-feedback">
+                                  Contraseña requerida ó debe ser al menos 4 caracteres con numeros, letras mayusculas y minuscula 
+                                </div>
+                                <div class="valid-feedback">
+                                    Valido!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="d-flex">
+                                <div class="checkbox checkbox-info pt-0">
+                                    <input type="checkbox" class="material-inputs chk-col-indigo" id="remember-me" name="remember-me" [(ngModel)]="rememberMe">
+                                    <label for="checkbox-signup"> Recordarme </label>
+                                </div> 
+                                <div class="ms-auto">
+                                    <a href="javascript:void(0)" class="link font-weight-medium d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#resetPassword"><i class="fas fa-lock-open"></i>  Olvido de contraseña?</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-center my-3">
+                            <div class="col-xs-12">
+                                <button class="btn btn-info d-block w-100 waves-effect waves-light" type="submit">Ingresar</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 text-center">
+                                <div class="social mb-3">
+                                    <a href="javascript:void(0)" class="btn fab fa-facebook-f" data-bs-toggle="tooltip" title="Ingresa con Facebook" > <i aria-hidden="true"></i> </a>
+                                    <a href="javascript:void(0)" class="btn fab fa-google" data-bs-toggle="tooltip" title="Ingresa con Google" > <i aria-hidden="true"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-0">
+                            <div class="col-sm-12 justify-content-center d-flex">
+                                <p>No tienes una cuenta? <a href="authentication-register1.html" class="text-info font-weight-medium ms-1">Registrarse</a></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="recoverform">
+            <div class="logo">
+                <h3 class="font-weight-medium mb-3">Recuperar Contraseña</h3>
+                <span>Ingresa tu correo y enviaremos las instrucciones!</span>
+            </div>
+            <div class="row mt-3">
+                <!-- Form -->
+                <form class="col-12 form-material" action="">
+                    <!-- email -->
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <input class="form-control" type="email" required="" placeholder="Username">
+                        </div>
+                    </div>
+                    <!-- pwd -->
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <button class="btn btn-block btn-lg btn-primary text-uppercase" type="submit" name="action">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

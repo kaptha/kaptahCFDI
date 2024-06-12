@@ -1,0 +1,30 @@
+<div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url(../assets/images/big/auth-bg.jpg) no-repeat center center;">
+    <div class="auth-box p-4 bg-white rounded">
+        <div>
+            <div class="logo text-center">
+                <span class="db"><img src="../assets/images/logo-icon.png" alt="logo" /></span>
+                <h5 class="font-weight-medium mb-3 mt-1">Recuperar Contraseña</h5>
+            </div>
+            <!-- Form -->
+            <div class="row">
+                <div class="col-12">
+                    <form class="form-horizontal mt-3" >
+                        <div class="mb-3 row">
+                            <div class="col-12">
+                                <input class="form-control" type="password" name="password" #password minlength="4" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" data-toggle="tooltip" title="Ingrese su contraseña con al menos 4 caracteres y debe incluir letras mayúsculas, minúsculas y números" required>
+                        <div class="valid-feedback">Valido.</div>
+                        <div class="invalid-feedback">Poner una contraseña valida.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="col-xs-12">
+                                <button class="btn d-block w-100 btn-info" type="button" >Confirmar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
