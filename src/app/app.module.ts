@@ -18,7 +18,7 @@ import { Error404Component } from './error404/error404.component';
     BrowserModule,
     AppRoutingModule,
     PagesModule,
-    AuthModule,
+    AuthModule,    
     HttpClientModule
   ],
   providers: [],

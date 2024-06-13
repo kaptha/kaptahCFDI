@@ -1,41 +1,29 @@
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-
 import { UsersService } from '../services/users.service';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class AuthGuard implements CanActivate {
 
-  constructor( private usersService: UsersService,
-         private router: Router){}
-  
-  canActivate(): Promise<boolean> {
-    
-    return new Promise((resolve, reject) =>{
+  constructor(private usersService: UsersService, private router: Router) {}
 
-      this.usersService.authActivate().then((resp: any) =>{
+  async canActivate(): Promise<boolean> {
+    try {
+      const isAuthenticated = await this.usersService.authActivate();
 
-        if(!resp){
-          //console.log('Redirecting to login');
-          this.router.navigateByUrl("/login");
-          resolve(false);
-                            
-        }else{
+      if (!isAuthenticated) {
+        this.router.navigateByUrl('/login');
+        return false;
+      }
 
-          resolve(true)
-        }
-
-      }).catch(error => {
-        //console.error('Error during authentication:', error);
-        this.router.navigateByUrl("/login");
-        resolve(false);
-      });
-
-    })
-  
+      return true;
+    } catch (error) {
+      console.error('Error during authentication:', error);
+      this.router.navigateByUrl('/login');
+      return false;
+    }
   }
-  
 }
+

@@ -8,11 +8,11 @@
             <!-- Form -->
             <div class="row mt-4">
                 <div class="col-12">
-                    <form class="form-horizontal"  class="ps-form--account ps-tab-root needs-validation" >
+                    <form class="form-horizontal" (ngSubmit)="OnSubmit(f)" #f="ngForm" class="ps-form--account ps-tab-root needs-validation" novalidate>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control form-input-bg" id="tb-rfname" placeholder="Nombre Apellidos"  required>
+                                <input type="text" class="form-control form-input-bg" id="tb-rfname" placeholder="Nombre Apellidos"  [(ngModel)]="user.nombre" name="nombre" required>
                                 <label for="tb-rfname">Nombre Completo</label>
-                                <div  class="invalid-feedback">
+                                <div *ngIf="f.submitted && f.controls['nombre'].errors" class="invalid-feedback">
                                   Nombre es Requerido
                                 </div>
                                 <div class="valid-feedback">
@@ -21,9 +21,9 @@
                             </div>
 
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control form-input-bg" id="tb-remail" placeholder="registro@gmail.com"   required>
+                                <input type="email" class="form-control form-input-bg" id="tb-remail" placeholder="registro@gmail.com"  [(ngModel)]="user.email" name="email" email required>
                                 <label for="tb-remail">Correo</label>
-                                <div  class="invalid-feedback">
+                                <div *ngIf="f.submitted && f.controls['email'].errors" class="invalid-feedback">
                                   Correo es requerido
                                 </div>
                                 <div class="valid-feedback">
@@ -32,9 +32,9 @@
                             </div>
 
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control form-input-bg" id="tb-rfname" placeholder="XXXX-XXXXXXX-XX"   name="rfc" required>
+                                <input type="text" class="form-control form-input-bg" id="tb-rfname" placeholder="XXXX-XXXXXXX-XX"  [(ngModel)]="user.rfc" name="rfc" required ngModel (input)="onInputChange($event)" (change)="validate(rfc)" #rfc>
                                 <label for="tb-rfname">RFC</label>
-                                <div  class="invalid-feedback">
+                                <div *ngIf="f.submitted && f.controls['rfc'].errors" class="invalid-feedback">
                                   RFC es Requerido
                                 </div>
                                 <div class="valid-feedback">
@@ -43,9 +43,9 @@
                             </div>
 
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control form-input-bg" id="tb-rfname" placeholder="XXX-XXX-XXXX"   name="telefono" required>
+                                <input type="text" class="form-control form-input-bg" id="tb-rfname" placeholder="XXX-XXX-XXXX"  [(ngModel)]="user.telefono" name="telefono" required>
                                 <label for="tb-rfname">Telefono</label>
-                                <div  class="invalid-feedback">
+                                <div *ngIf="f.submitted && f.controls['telefono'].errors" class="invalid-feedback">
                                   Telefono es Requerido
                                 </div>
                                 <div class="valid-feedback">
@@ -55,7 +55,7 @@
 
                             <div class="form-floating mb-3">                             
                                 <label for="tb-rfname">Regimen Fiscal</label>
-                                <select class="form-control form-select" data-placeholder="Choose a Category" tabindex="1"  name="tipo_persona" required>
+                                <select class="form-control form-select" data-placeholder="Choose a Category" tabindex="1" [(ngModel)]="user.tipo_persona" name="tipo_persona" required>
                                 <option value="601">General de Ley Personas Morales</option>
                                 <option value="603">Personas Morales con Fines no Lucrativos</option>
                                 <option value="605">Sueldos y Salarios e Ingresos Asimilados a Salarios</option>
@@ -76,7 +76,7 @@
                                 <option value="625">Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas</option>
                                 <option value="626">Régimen Simplificado de Confianza</option>  
                                 </select>                                  
-                                <div  class="invalid-feedback">
+                                <div *ngIf="f.submitted && f.controls['tipo_persona'].errors" class="invalid-feedback">
                                   Campo Requerido
                                 </div>
                                 <div class="valid-feedback">
@@ -85,9 +85,9 @@
                             </div>
 
                             <div class="form-floating mb-3">
-                                <input type="password" class="form-control form-input-bg" id="text-rpassword" placeholder="*****" >
+                                <input type="password" class="form-control form-input-bg" id="text-rpassword" placeholder="*****" [(ngModel)]="user.password" name="password" required minlength="4" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" data-bs-toggle="tooltip" data-bs-placement="top" title="Ingrese su contraseña con al menos 4 caracteres y debe incluir letras mayúsculas, minúsculas y números" (change)="validate(password)" #password>
                                 <label for="text-rpassword">Contraseña</label>
-                                <div  class="invalid-feedback">
+                                <div *ngIf="f.submitted && f.controls['password'].errors" class="invalid-feedback">
                                   Contraseña requerida ó debe ser al menos 4 caracteres con numeros, letras mayusculas y minuscula 
                                 </div>
                                 <div class="valid-feedback">
@@ -108,8 +108,8 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 text-center">
                     <div class="social mb-3">
-                        <a href="javascript:void(0)" class="btn fab fa-facebook-f" data-bs-toggle="tooltip" title="Registro con Facebook" style="cursor:pointer" > <i aria-hidden="true"></i> </a>
-                        <a href="javascript:void(0)" class="btn fab fa-google" data-bs-toggle="tooltip" title="Registro con Google" style="cursor:pointer" > <i aria-hidden="true"></i> </a>
+                        <a href="javascript:void(0)" class="btn fab fa-facebook-f" data-bs-toggle="tooltip" title="Registro con Facebook" style="cursor:pointer" (click)="facebookRegister()"> <i aria-hidden="true"></i> </a>
+                        <a href="javascript:void(0)" class="btn fab fa-google" data-bs-toggle="tooltip" title="Registro con Google" style="cursor:pointer" (click)="googleRegister()"> <i aria-hidden="true"></i> </a>
                     </div>
                 </div>
             </div>
